@@ -22,3 +22,6 @@ def image_create(request):
 
 	return render(request, 'images/image/create.html', {'section': 'image', 'form': form})
 
+def image_detail(request, id, slug):
+	image = get_object_or_404(Image, id=id, slug=slug)
+	return render(request,'images/image/detail.html',{'section': 'images','image': image})
